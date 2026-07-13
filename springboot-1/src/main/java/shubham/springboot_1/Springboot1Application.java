@@ -2,14 +2,15 @@ package shubham.springboot_1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class Springboot1Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Springboot1Application.class, args);
-		
-		Student student = new Student();
+		ApplicationContext context = SpringApplication.run(Springboot1Application.class, args);
+
+		Student student = context.getBean(Student.class);
 		student.setStudent("Rem", 1);
 
 		System.out.println(student.getName());

@@ -18,8 +18,9 @@ public class Springboot1Application {
 //		System.out.println(student.getRoll());
 //		System.out.println(student);
 
-		OrderService orderService = context.getBean(OrderService.class);
-		orderService.placeOrder();
+//		OrderService orderService = context.getBean(OrderService.class);
+//		orderService.placeOrder();
+
 	}
 
 }

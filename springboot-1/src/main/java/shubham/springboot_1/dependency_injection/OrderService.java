@@ -6,13 +6,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderService {
     //1. field injection
-    @Autowired
+    //@Autowired
     PaymentService paymentService;
 
     //2. constructor injection
-//    OrderService(PaymentService paymentService) {
-//        this.paymentService = paymentService;
-//    }
+    OrderService(PaymentService paymentService) {
+        this.paymentService = paymentService;
+    }
 
     //3. setter injection
     public void setPaymentService(PaymentService paymentService) {

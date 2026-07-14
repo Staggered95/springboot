@@ -18,6 +18,15 @@ public class MyPortfolio {
                     <li>Likes linux ricing</li>
                     </ul>
                     <br>
+                    <h2>Skills</h2>
+                    <p>I am proficient in web dev technologies and tools</p>
+                    <ul>
+                    <li>Languages: HTML, CSS, JS, Node.js</li>
+                    <li>Frameworks & Libraries: React, Express, Tailwindcss, Laravel</li>
+                    <li>Database: MySQL, PostgreSQL, MongoDB, Redis</li>
+                    <li>Tools: VSCode, Neovim, postman, bruno, nginx, docker, EC2, linux</li>
+                    </ul>
+                    <br>
                     
                 """;
         return me;

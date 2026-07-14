@@ -10,12 +10,15 @@ public class MyPortfolio {
     public String myself() {
         String me = """
                     <h1>Myself</h1>
+                    <h2>Introduction</h2>
                     <p>I am Shubham Singh, a BTech CSE student.</p>
                     <ul>
                     <li>Fullstack web developer</li>
                     <li>I use PERN Stack</li>
                     <li>Likes linux ricing</li>
                     </ul>
+                    <br>
+                    
                 """;
         return me;
     }

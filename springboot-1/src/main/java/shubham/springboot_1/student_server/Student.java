@@ -1,5 +1,6 @@
 package shubham.springboot_1.student_server;
 
+
 public class Student {
     int id;
     String name;

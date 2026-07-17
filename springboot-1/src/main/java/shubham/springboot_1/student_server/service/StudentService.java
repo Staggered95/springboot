@@ -1,6 +1,8 @@
-package shubham.springboot_1.student_server;
+package shubham.springboot_1.student_server.service;
 
 import org.springframework.stereotype.Service;
+import shubham.springboot_1.student_server.entity.Student;
+import shubham.springboot_1.student_server.repository.StudentRepository;
 
 @Service
 public class StudentService {

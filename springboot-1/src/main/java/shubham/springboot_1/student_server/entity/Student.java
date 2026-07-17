@@ -1,4 +1,4 @@
-package shubham.springboot_1.student_server;
+package shubham.springboot_1.student_server.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

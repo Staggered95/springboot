@@ -1,10 +1,12 @@
-package shubham.springboot_1.student_server;
+package shubham.springboot_1.student_server.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import shubham.springboot_1.student_server.service.StudentService;
+import shubham.springboot_1.student_server.entity.Student;
 
 @RestController
 public class StudentController {

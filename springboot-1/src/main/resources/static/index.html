@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Student CRUD</h1>
+
+<div class="card">
+    <input id="id" type="number" placeholder="ID">
+    <input id="name" placeholder="Name">
+    <input id="age" type="number" placeholder="Age">
+    <input id="department" placeholder="Department">
+
+    <div class="buttons">
+        <button onclick="createStudent()">Create</button>
+        <button onclick="updateStudent()">Update</button>
+        <button onclick="loadStudents()">Refresh</button>
+    </div>
+</div>
+
+<h2>Students</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Department</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+
+    <tbody id="students"></tbody>
+</table>
+
+<script src="script.js"></script>
+
+</body>
+</html>

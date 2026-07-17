@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import shubham.springboot_1.student_server.service.StudentService;
 import shubham.springboot_1.student_server.entity.Student;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import java.util.List;
 
 @RestController
 public class StudentController {
@@ -28,6 +31,23 @@ public class StudentController {
     }
 
     //READ
+    @GetMapping("/student")
+    public ResponseEntity<List<Student>> getStudents() {
+        List<Student> students = studentService.getAllStudents();
+        return ResponseEntity.ok(students);
+    }
+
+    @GetMapping("/student/{id}")
+    public ResponseEntity<Student> getStudent(@PathVariable int id) {
+
+        Student student = studentService.getStudent(id);
+
+        if (student == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(student);
+    }
 
     //UPDATE
 

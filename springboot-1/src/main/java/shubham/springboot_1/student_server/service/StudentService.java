@@ -3,6 +3,7 @@ package shubham.springboot_1.student_server.service;
 import org.springframework.stereotype.Service;
 import shubham.springboot_1.student_server.entity.Student;
 import shubham.springboot_1.student_server.repository.StudentRepository;
+import java.util.List;
 
 @Service
 public class StudentService {
@@ -19,5 +20,13 @@ public class StudentService {
 
         if (id < 0 || name==null || age<0 || department==null) return null;
         return studentRepository.save(student);
+    }
+
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
+    }
+
+    public Student getStudent(int id) {
+        return studentRepository.findById(id).orElse(null);
     }
 }

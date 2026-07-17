@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import shubham.springboot_1.student_server.service.StudentService;
 import shubham.springboot_1.student_server.entity.Student;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
@@ -50,6 +52,30 @@ public class StudentController {
     }
 
     //UPDATE
+    @PutMapping("/student/{id}")
+    public ResponseEntity<Student> updateStudent(
+            @PathVariable int id,
+            @RequestBody Student student) {
+
+        Student updated = studentService.updateStudent(id, student);
+
+        if (updated == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(updated);
+    }
 
     //DELETE
+    @DeleteMapping("/student/{id}")
+    public ResponseEntity<Void> deleteStudent(@PathVariable int id) {
+
+        boolean deleted = studentService.deleteStudent(id);
+
+        if (!deleted) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.noContent().build();
+    }
 }

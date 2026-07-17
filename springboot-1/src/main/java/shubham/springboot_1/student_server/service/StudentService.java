@@ -29,4 +29,29 @@ public class StudentService {
     public Student getStudent(int id) {
         return studentRepository.findById(id).orElse(null);
     }
+
+    public Student updateStudent(int id, Student updatedStudent) {
+
+        Student student = studentRepository.findById(id).orElse(null);
+
+        if (student == null) {
+            return null;
+        }
+
+        student.setName(updatedStudent.getName());
+        student.setAge(updatedStudent.getAge());
+        student.setDepartment(updatedStudent.getDepartment());
+
+        return studentRepository.save(student);
+    }
+
+    public boolean deleteStudent(int id) {
+
+        if (!studentRepository.existsById(id)) {
+            return false;
+        }
+
+        studentRepository.deleteById(id);
+        return true;
+    }
 }

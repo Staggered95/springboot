@@ -1,4 +1,8 @@
 package shubham.springboot_1.student_server.entity;
+import org.hibernate.annotations.CreationTimestamp;
+import jakarta.persistence.Column;
+
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,6 +14,9 @@ public class Student {
     String name;
     int age;
     String department;
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
 
     public int getId() {
         return id;
@@ -41,5 +48,13 @@ public class Student {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Student {
@@ -17,6 +18,8 @@ public class Student {
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime createdAt;
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 
     public int getId() {
         return id;
@@ -36,6 +39,14 @@ public class Student {
 
     public int getAge() {
         return age;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 
     public void setAge(int age) {

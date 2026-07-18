@@ -1,5 +1,10 @@
 const API = "/student";
 
+function formatDate(date) {
+    if (!date) return "-";
+    return new Date(date).toLocaleString();
+}
+
 async function loadStudents() {
 
     const response = await fetch(API);
@@ -16,6 +21,8 @@ async function loadStudents() {
             <td>${student.name}</td>
             <td>${student.age}</td>
             <td>${student.department}</td>
+            <td>${formatDate(student.createdAt)}</td>
+            <td>${formatDate(student.updatedAt)}</td>
             <td>
                 <button onclick="deleteStudent(${student.id})">
                     Delete

@@ -1,4 +1,7 @@
 package shubham.springboot_1.student_server.controller;
+import shubham.springboot_1.student_server.dto.StudentCreateRequestDTO;
+import shubham.springboot_1.student_server.dto.StudentUpdateRequestDTO;
+import shubham.springboot_1.student_server.dto.StudentResponseDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,25 +27,28 @@ public class StudentController {
 
     //CREATE
     @PostMapping("/student")
-    public ResponseEntity<Student> storeStudent(@RequestBody Student student) {
-        Student res = studentService.studentValidate(student);
-        if (res==null) {
-            return ResponseEntity.status(400).body(res);
+    public ResponseEntity<StudentResponseDTO> createStudent(
+            @RequestBody StudentCreateRequestDTO dto) {
+
+        StudentResponseDTO response = studentService.createStudent(dto);
+
+        if (response == null) {
+            return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.status(201).body(res);
+
+        return ResponseEntity.status(201).body(response);
     }
 
     //READ
     @GetMapping("/student")
-    public ResponseEntity<List<Student>> getStudents() {
-        List<Student> students = studentService.getAllStudents();
-        return ResponseEntity.ok(students);
+    public ResponseEntity<List<StudentResponseDTO>> getStudents() {
+        return ResponseEntity.ok(studentService.getAllStudents());
     }
 
     @GetMapping("/student/{id}")
-    public ResponseEntity<Student> getStudent(@PathVariable int id) {
+    public ResponseEntity<StudentResponseDTO> getStudent(@PathVariable int id) {
 
-        Student student = studentService.getStudent(id);
+        StudentResponseDTO student = studentService.getStudent(id);
 
         if (student == null) {
             return ResponseEntity.notFound().build();
@@ -53,11 +59,11 @@ public class StudentController {
 
     //UPDATE
     @PutMapping("/student/{id}")
-    public ResponseEntity<Student> updateStudent(
+    public ResponseEntity<StudentResponseDTO> updateStudent(
             @PathVariable int id,
-            @RequestBody Student student) {
+            @RequestBody StudentUpdateRequestDTO request) {
 
-        Student updated = studentService.updateStudent(id, student);
+        StudentResponseDTO updated = studentService.updateStudent(id, request);
 
         if (updated == null) {
             return ResponseEntity.notFound().build();

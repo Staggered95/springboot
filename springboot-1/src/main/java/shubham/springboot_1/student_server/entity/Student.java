@@ -1,17 +1,16 @@
 package shubham.springboot_1.student_server.entity;
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-import jakarta.persistence.Column;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Student {
     @Id
-    int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     String name;
     int age;
     String department;

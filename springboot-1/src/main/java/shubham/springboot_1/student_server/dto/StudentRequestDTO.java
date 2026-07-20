@@ -1,5 +1,6 @@
 package shubham.springboot_1.student_server.dto;
 
+//Student Request DTO
 public class StudentRequestDTO {
     private String name;
     private int age;

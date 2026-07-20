@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
+import jakarta.validation.Valid;
 
 @RestController
 public class StudentController {
@@ -28,14 +29,9 @@ public class StudentController {
     //CREATE
     @PostMapping("/student")
     public ResponseEntity<StudentResponseDTO> createStudent(
-            @RequestBody StudentCreateRequestDTO dto) {
+            @Valid @RequestBody StudentCreateRequestDTO dto) {
 
         StudentResponseDTO response = studentService.createStudent(dto);
-
-        if (response == null) {
-            return ResponseEntity.badRequest().build();
-        }
-
         return ResponseEntity.status(201).body(response);
     }
 
@@ -61,15 +57,14 @@ public class StudentController {
     @PutMapping("/student/{id}")
     public ResponseEntity<StudentResponseDTO> updateStudent(
             @PathVariable int id,
-            @RequestBody StudentUpdateRequestDTO request) {
+            @Valid @RequestBody StudentUpdateRequestDTO dto) {
 
-        StudentResponseDTO updated = studentService.updateStudent(id, request);
+        StudentResponseDTO response = studentService.updateStudent(id, dto);
 
-        if (updated == null) {
+        if (response == null)
             return ResponseEntity.notFound().build();
-        }
 
-        return ResponseEntity.ok(updated);
+        return ResponseEntity.ok(response);
     }
 
     //DELETE

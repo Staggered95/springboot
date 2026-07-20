@@ -10,16 +10,30 @@
 <h1>Student CRUD</h1>
 
 <div class="card">
-    <input id="id" type="number" placeholder="ID">
+
+    <h3>Create Student</h3>
+
     <input id="name" placeholder="Name">
     <input id="age" type="number" placeholder="Age">
     <input id="department" placeholder="Department">
 
-    <div class="buttons">
-        <button onclick="createStudent()">Create</button>
-        <button onclick="updateStudent()">Update</button>
-        <button onclick="loadStudents()">Refresh</button>
-    </div>
+    <button onclick="createStudent()">Create</button>
+
+    <hr>
+
+    <h3>Update Student</h3>
+
+    <input id="updateId" type="number" placeholder="Student ID">
+    <input id="updateName" placeholder="Name">
+    <input id="updateAge" type="number" placeholder="Age">
+    <input id="updateDepartment" placeholder="Department">
+
+    <button onclick="updateStudent()">Update</button>
+
+    <hr>
+
+    <button onclick="loadStudents()">Refresh</button>
+
 </div>
 
 <h2>Students</h2>

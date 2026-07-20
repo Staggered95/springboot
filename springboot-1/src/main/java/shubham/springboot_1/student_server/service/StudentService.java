@@ -29,10 +29,6 @@ public class StudentService {
 
     public StudentResponseDTO createStudent(StudentCreateRequestDTO dto) {
 
-        if (dto.getName() == null || dto.getAge() < 0 || dto.getDepartment() == null) {
-            return null;
-        }
-
         Student student = new Student();
         student.setName(dto.getName());
         student.setAge(dto.getAge());

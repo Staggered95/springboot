@@ -1,10 +1,24 @@
 package shubham.springboot_1.student_server.dto;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
+
 public class StudentCreateRequestDTO {
 
+    @NotBlank(message = "Name is required")
+    @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
     private String name;
+
+    @Min(value = 16, message = "Age must be at least 16")
+    @Max(value = 100, message = "Age must not exceed 100")
     private int age;
+
+    @NotBlank(message = "Department is required")
     private String department;
+
 
     public StudentCreateRequestDTO() {
     }
